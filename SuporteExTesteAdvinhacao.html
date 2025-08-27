@@ -1,33 +1,40 @@
 <html>
- <head>
- 	<meta http - equiv = "Content-Type" content = "text/html; charset=UTF-8" > 
-</head> 
- <body> 
-	<form> 
-	<input type = "number" id = "numero" > 
-	<button onclick = "jogarAdivinhacao()" >Testar advinhação </button> </form> 
+
+<head>
+   <meta http - equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+   <form>
+      <input type="number" id="numero">
+      <button onclick="jogarAdivinhacao()">Testar advinhação </button>
+   </form>
 
 
-<script>
+   <script>
+      function jogarAdivinhacao() {
+         event.preventDefault();
+         let numero = Math.floor(Math.random() * 100) + 1;
+         console.log(numero);
+         let tentativas = 1;
+         while (true) {
+            let palpite = Number(document.getElementById("numero").value)
+            console.log(palpite);
+            if (palpite > numero) {
+               console.log("Palpite muito Alto!");
+            }
+            else if (palpite < numero) {
+               console.log("Palpite muito baixo!");
+            }
+            else {
+               console.log("Palpite correto!")
+               break;
+            }
+            tentativas++;
+         }
+         console.log("Número de Tentativas: ", tentativas);
+      }
+   </script>
+</body>
 
- function jogarAdivinhacao() {
-   event.preventDefault()    let numero = Math.floor(Math.random() * 100) + 1;
-   console.log(numero)
-   let tentativas = 1;
-   while (true) {
-      let palpite = Number(document.getElementById("numero").value); //captura o dado numero pelo input do usuário
-  	 console.log(palpite); 
-      if (palpite > numero) {
-         console.log("Palpite muito Alto!");
-      }
-      else if (palpite < numero) {
-         console.log("Palpite muito baixo!");
-      }
-      else {
-         console.log("Palpite correto!")
-         break;
-      }
-      tentativas++;
-   }
-   console.log("Número de Tentativas: ", tentativas);
-} </script> </body>  </html>
+</html>
